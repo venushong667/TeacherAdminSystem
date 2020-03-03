@@ -5,3 +5,4 @@ Teachers need a system where they can perform administrative functions for their
 1. Running mysql on 127.0.0.1 
 2. npm install to get all dependencies
 3. Run npm start . Server will start on port 3000
+4. API url prefix: 127.0.0.1/api
