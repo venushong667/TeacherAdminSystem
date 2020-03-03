@@ -1,0 +1,6 @@
+
+
+# Dependencies
+/node_modules
+/.history
+/src/node_modules
