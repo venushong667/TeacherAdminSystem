@@ -5,4 +5,4 @@ Teachers need a system where they can perform administrative functions for their
 1. Running mysql on local
 2. npm install to get all dependencies
 3. Run npm start . Server will start on port 3000
-4. API url prefix: 127.0.0.1/api
+4. API url prefix: http://localhost:3000/api/
