@@ -2,6 +2,7 @@ const Teacher = require("../models/teacher");
 const Student = require("../models/student");
 const Teacher_Student = require("../models/teacher_student");
 const db = require("../config/database");
+const { validateEmail } = require("./validator");
 
 //Get Teacher data from Teacher table
 const getTeacherData = async teacherEmail => {
@@ -45,4 +46,22 @@ const getRegisteredStudents = async teacherEmail => {
   return studentEmails;
 };
 
-module.exports = { getTeacherData, getStudentData, getRegisteredStudents };
+const getMentionedEmails = notification => {
+  mentions = notification.match(/@\S+/g);
+  console.log(mentions);
+  if (mentions) {
+    //remove @ from the mention to get correctemail
+    const mentionedEmails = mentions.map(mention => mention.substring(1));
+    return mentionedEmails;
+  } else {
+    const mentionedEmails = [];
+    return mentionedEmails;
+  }
+};
+
+module.exports = {
+  getTeacherData,
+  getStudentData,
+  getRegisteredStudents,
+  getMentionedEmails
+};
