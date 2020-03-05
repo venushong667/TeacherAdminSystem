@@ -1,6 +1,5 @@
 const Teacher = require("../models/teacher");
 const db = require("../config/database");
-const { validateEmail } = require("../utils/validator");
 
 exports.getTeachers = async (req, res) => {
   Teacher.findAll()
@@ -27,16 +26,7 @@ exports.getTeacher = async (req, res) => {
 
 exports.addTeacher = async (req, res) => {
   try {
-    const teacherEmail = req.body.teacher;
-    //errors validate
-    if (!validateEmail(teacherEmail)) {
-      const error = "Invalid email.";
-
-      return res.status(400).json({ message: error });
-    }
-
-    const teacher = await Teacher.create({ email: teacherEmail });
-
+    const teacher = await Teacher.create({ email: req.body.teacher });
     res.send(teacher);
     return teacher;
   } catch (err) {
